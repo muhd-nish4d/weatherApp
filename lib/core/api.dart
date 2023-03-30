@@ -1,0 +1,1 @@
+const api = 'https://api.weatherapi.com/v1/current.json?key=f1be62b4481b4656981113946233003&q=kerala&aqi=no';
