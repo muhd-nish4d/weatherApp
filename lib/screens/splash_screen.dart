@@ -15,10 +15,13 @@ class _ScreenSplashState extends State<ScreenSplash> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>const ScreenHome(),));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const ScreenHome(),
+      ));
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

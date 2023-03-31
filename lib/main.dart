@@ -12,13 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: GoogleFonts.josefinSans().fontFamily,
         textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: Colors.orange,fontSize: 20),
-          bodyMedium: TextStyle(color: Colors.orange,fontSize: 20),
-          bodySmall: TextStyle(color: Colors.orange,fontSize: 20),
+          bodyLarge: TextStyle(color: Colors.white, fontSize: 20),
+          bodyMedium: TextStyle(color: Colors.white, fontSize: 20),
+          bodySmall: TextStyle(color: Colors.white, fontSize: 20),
         ),
         primarySwatch: Colors.blue,
       ),

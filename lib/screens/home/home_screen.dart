@@ -1,44 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/core/api_call.dart';
 import 'package:weather_app/screens/home/widgets/top_section.dart';
 import 'package:weather_app/screens/home/widgets/value_container.dart';
+
+int? timeNow;
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    timeNow = DateTime.now().hour;
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: const Text(
-          'Place',
-          style: TextStyle(
-            color: Colors.orange,
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Colors.transparent,
+      //   centerTitle: true,
+      //   title: const Text(
+      //     'Weather',
+      //     style: TextStyle(
+      //       color: Colors.orange,
+      //       fontWeight: FontWeight.bold,
+      //       fontSize: 30,
+      //     ),
+      //   ),
+      // ),
+      body: Container(
+        height: size.height,
+        width: size.width,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: timeNow! >= 6 && 18 >= timeNow!
+                ? const AssetImage('lib/assets/image/4046908.jpg')
+                : const AssetImage('lib/assets/image/night_image.jpg')
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 50),
-            child: WidgetTopSection(),
-          ),
-          const Spacer(),
-          const WidgetValuesContainer(),
-          ElevatedButton(
-              onPressed: () {
-                weatherLoaded();
-              },
-              child: const Text('hi')),
-          const SizedBox(
-            height: 20,
-          )
-        ],
+        child: Column(
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(top: 50),
+              child: WidgetTopSection(),
+            ),
+            Spacer(),
+            WidgetValuesContainer(),
+            SizedBox(
+              height: 20,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -61,14 +71,15 @@ class WeatherValues extends StatelessWidget {
         children: [
           Text(
             type,
-            style: const TextStyle(
-                fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),
+            style:  TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: timeNow! >= 6 && 18 >= timeNow!?Colors.blue:Colors.white),
           ),
           const Spacer(),
           Text(
             value,
-            style: const TextStyle(
-                fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),
+            style: 
+             TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: timeNow! >= 6 && 18 >= timeNow!?Colors.blue:Colors.white),
           )
         ],
       ),

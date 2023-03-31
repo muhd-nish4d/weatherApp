@@ -3,21 +3,30 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:weather_app/core/api.dart';
 import 'package:weather_app/models/weather_model.dart';
-
+Weather? hi;
 Future<dynamic> weatherValueCall() async {
   return await Dio().get(api);
 }
 
-Future weatherLoaded() async {
+Future<Weather> weatherLoaded() async {
   var jsonString = await weatherValueCall();
   final jsonResponse = json.decode(jsonString.toString());
   Weather weather = Weather.fromJson(jsonResponse);
-  print(weather.location!.region);
-
-  // final Response response =
-  //         await Dio(BaseOptions()).get(api);
-  //     if (response.statusCode == 200 || response.statusCode == 201) {
-  //       final weather = (response.data['results'] as List).map((e) {
-  //         return Weather.fromJson(e);
-  //       }).toList();}
+  return weather;
 }
+
+// Future<Weather> weatherLoaded() async {
+//   final response = await Dio()
+//       .get('https://jsonplaceholder.typicode.com/albums/1');
+
+//   if (response.statusCode == 200) {
+//     // If the server did return a 200 OK response,
+//     // then parse the JSON.
+//     print(Weather.fromJson(jsonDecode(response.data.toString())));
+//     return Weather.fromJson(jsonDecode(response.data.toString()));
+//   } else {
+//     // If the server did not return a 200 OK response,
+//     // then throw an exception.
+//     throw Exception('Failed to load album');
+//   }
+// }

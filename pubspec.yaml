@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^4.0.3
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -54,6 +55,9 @@ flutter:
     - lib/assets/image/weather_app_day_image.jpg
     - lib/assets/image/weather_app_night_image.jpg
     - lib/assets/icons/rainbow_icon.png
+    - lib/assets/image/4046908.jpg
+    - lib/assets/image/night_image.jpg
+    - lib/assets/icons/moon.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
